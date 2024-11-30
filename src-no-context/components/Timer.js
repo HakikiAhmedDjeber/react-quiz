@@ -1,5 +1,4 @@
 import { useEffect } from "react";
-import { useQuiz } from "../Context";
 
 function TimeFormater(seconds) {
   const M = Math.trunc(seconds / 60);
@@ -7,8 +6,7 @@ function TimeFormater(seconds) {
   return `${M < 10 ? "0" + M : +M}:${S < 10 ? "0" + S : S}`;
 }
 
-function Timer() {
-  const { dispatch, secondsRemaining } = useQuiz();
+function Timer({ dispatch, secondsRemaining }) {
   useEffect(
     function () {
       const id = setInterval(() => {
